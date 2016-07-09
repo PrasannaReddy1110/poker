@@ -49,7 +49,7 @@ public class Poker {
         return c == 1;
     }
     public  boolean isThreeOfAKind(int[] pips, int[] suits) {
-        int c = 0;
+	 int c = 0;
         for (int i = 0; i < pips.length-2; i++) {
             if(pips[i] == pips[i+1] && pips[i] == pips[i+2]) {
                 c++;
@@ -58,15 +58,9 @@ public class Poker {
            
         }
         return c == 1;
-    }
+       }
     public  boolean isFourOfAKind(int[] pips, int[] suits) {
-        int c = 0;
-        for (int i = 0; i < pips.length-3; i++) {
-            if(pips[i] == pips[i+1] && pips[i] == pips[i+2] && pips[i] == pips[i+3]) {
-                c++;
-            }
-        }
-        return c == 1;
+   	return ((pips[0] - pips[3] == 0) || (pips[1] - pips[4] == 0) );
     }
     public boolean isFullHouse(int []pips,int[] suits){
         int n=0;
@@ -85,13 +79,7 @@ public class Poker {
         return pips[pips.length-1];
     }
     public  boolean isRoyalFlush(int[] pips, int[] suits) {
-        if (pips[0] == 1 ) {
-            for (int i = 1; i < pips.length; i++) {
-                if (pips[i] != 9+i) return false;
-            }
-            return true;
-        }
-        return false;
+        return (pips[0] == 1 && pips[4] - pips[1] == 4 && suits[0] == suits[4] );
 
     }
 public String checkRank(Card a, Card b, Card c, Card d, Card e) {
